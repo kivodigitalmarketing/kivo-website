@@ -228,26 +228,54 @@ function initStatCounters() {
  * 7. Interactive Project Consultation Form Handler
  * Dispatches to WhatsApp (+91 9440524658) or Mailto
  */
+/**
+ * 7. Proposal Consultation Form - WhatsApp Integration & Interactive Service Selection
+ */
 function initContactForm() {
   const form = document.getElementById('kivo-consultation-form');
   if (!form) return;
+
+  // Real-time interactive feedback for service checkboxes
+  const serviceCards = form.querySelectorAll('.service-option-card');
+  serviceCards.forEach(card => {
+    const checkbox = card.querySelector('input[type="checkbox"]');
+    if (checkbox) {
+      // Initialize state
+      if (checkbox.checked) card.classList.add('checked');
+      
+      checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+          card.classList.add('checked');
+        } else {
+          card.classList.remove('checked');
+        }
+      });
+    }
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const name = document.getElementById('client-name')?.value || 'Client';
     const phone = document.getElementById('client-phone')?.value || '';
-    const budget = document.getElementById('client-budget')?.value || 'Not specified';
+    const email = document.getElementById('client-email')?.value || '';
+    const category = document.getElementById('client-category')?.value || '';
+    const budget = document.getElementById('client-budget')?.value || '';
     const message = document.getElementById('client-message')?.value || '';
     
     // Collect checked services
     const checkedBoxes = document.querySelectorAll('input[name="services"]:checked');
     const selectedServices = Array.from(checkedBoxes).map(cb => cb.value).join(', ');
 
-    const text = `Hello Kivo Digital Marketing Team!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Services Needed:* ${encodeURIComponent(selectedServices || 'General Marketing Growth')}%0A*Budget:* ${encodeURIComponent(budget)}%0A*Project Goals:* ${encodeURIComponent(message)}`;
+    let details = `Hello Kivo Digital Marketing Team!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}`;
+    if (email) details += `%0A*Email:* ${encodeURIComponent(email)}`;
+    if (category) details += `%0A*Business Category:* ${encodeURIComponent(category)}`;
+    details += `%0A*Services Needed:* ${encodeURIComponent(selectedServices || 'General Marketing Growth')}`;
+    if (budget) details += `%0A*Approx Budget:* ${encodeURIComponent(budget)}`;
+    if (message) details += `%0A*Project Goals:* ${encodeURIComponent(message)}`;
 
     // Open WhatsApp directly to 9440524658
-    const whatsappUrl = `https://wa.me/919440524658?text=${text}`;
+    const whatsappUrl = `https://wa.me/919440524658?text=${details}`;
     window.open(whatsappUrl, '_blank');
   });
 }
