@@ -2554,6 +2554,56 @@
   margin-bottom: 1.5rem;
 }
 
+/* Minimalist Agency Partner Lockup */
+.foundation-partner-minimal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.25rem 0 1.25rem;
+  padding: 0.28rem 0.75rem 0.28rem 0.65rem;
+  background: #130a43;
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  border-radius: var(--radius-full);
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: 0 4px 12px rgba(19, 10, 67, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.foundation-partner-minimal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(19, 10, 67, 0.18);
+  border-color: rgba(217, 119, 6, 0.45);
+}
+
+.partner-minimal-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f5c518;
+  white-space: nowrap;
+}
+
+.partner-minimal-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.22);
+  flex-shrink: 0;
+}
+
+.partner-minimal-logo {
+  height: 18px !important;
+  width: auto !important;
+  max-width: 105px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
 .story-insight-quote-box {
   position: relative;
   background: rgba(19, 10, 67, 0.035);
@@ -3078,6 +3128,21 @@
   .story-insight-quote-box {
     padding: 0.75rem 0.85rem !important;
     margin: 0.75rem 0 !important;
+  }
+
+  .foundation-partner-minimal {
+    margin: 0.15rem 0 0.85rem !important;
+    padding: 0.22rem 0.6rem !important;
+    gap: 0.45rem !important;
+  }
+
+  .partner-minimal-label {
+    font-size: 0.62rem !important;
+  }
+
+  .partner-minimal-logo {
+    height: 15px !important;
+    max-width: 85px !important;
   }
 
   .insight-quote-text {
