@@ -335,8 +335,8 @@
 }
 
 .hero-3d-service-icon.icon-instagram {
-  top: -20px;
-  right: 130px;
+  top: -30px;
+  right: 50px;
   width: 56px;
   height: 56px;
   z-index: 4;
@@ -405,14 +405,14 @@
   50% { transform: translateZ(60px) translateY(-11px) rotate(-4deg); }
 }
 
-/* 1. Central 3D Female Marketer Character (Full Clear Face Visibility) */
+/* 1. Central 3D Female Marketer Character (100% Unobstructed Full Face Visibility) */
 .marketer-character {
   bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%) translateZ(25px);
-  z-index: 10;
-  width: 410px;
-  max-width: 92%;
+  left: 43%;
+  transform: translateX(-50%) translateZ(65px);
+  z-index: 25;
+  width: 425px;
+  max-width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -426,6 +426,8 @@
   filter: drop-shadow(0 20px 35px rgba(19, 10, 67, 0.16));
   animation: floatMarketer 6s ease-in-out infinite;
   transform-origin: center bottom;
+  position: relative;
+  z-index: 25;
 }
 
 .marketer-shadow {
@@ -449,17 +451,17 @@
 
 /* 2. Floating 3D Analytics Dashboard Window (Positioned to Never Obstruct Face) */
 .analytics-dashboard-window {
-  top: 15px;
-  right: -35px;
-  width: 255px;
-  padding: 0.85rem 0.95rem;
-  z-index: 5;
+  top: 0px;
+  right: -75px;
+  width: 240px;
+  padding: 0.8rem 0.9rem;
+  z-index: 8;
   transform: translateZ(20px) rotateY(-8deg) rotateX(4deg);
   animation: floatDashboard 5.8s ease-in-out infinite;
 }
 
 .analytics-dashboard-window:hover {
-  transform: translateZ(45px) rotateY(-3deg) rotateX(2deg) scale(1.02);
+  transform: translateZ(30px) rotateY(-3deg) rotateX(2deg) scale(1.02);
   box-shadow: 0 28px 55px -8px rgba(19, 10, 67, 0.22);
 }
 
@@ -644,8 +646,8 @@
 }
 
 @keyframes floatDashboard {
-  0%, 100% { transform: translateZ(45px) rotateY(-6deg) rotateX(4deg) translateY(0px); }
-  50% { transform: translateZ(45px) rotateY(-4deg) rotateX(2deg) translateY(-12px); }
+  0%, 100% { transform: translateZ(25px) rotateY(-6deg) rotateX(4deg) translateY(0px); }
+  50% { transform: translateZ(25px) rotateY(-4deg) rotateX(2deg) translateY(-12px); }
 }
 
 /* 3. Floating 3D Donut / Pie Chart (Positioned Below Shoulder Level for Clear Face Visibility) */
@@ -1043,6 +1045,24 @@
   .hero-curled-arrow-wrapper {
     display: none;
   }
+
+  .hero-3d-card-stack {
+    max-width: 490px;
+  }
+  
+  .marketer-character {
+    left: 43%;
+    width: 385px;
+    z-index: 25;
+    transform: translateX(-50%) translateZ(65px);
+  }
+
+  .analytics-dashboard-window {
+    top: 5px;
+    right: -45px;
+    width: 220px;
+    z-index: 8;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1108,9 +1128,9 @@
     width: 295px;
     max-width: 92%;
     bottom: 0px;
-    left: 50%;
-    z-index: 20 !important;
-    transform: translateX(-50%) translateZ(45px) !important;
+    left: 45%;
+    z-index: 25 !important;
+    transform: translateX(-50%) translateZ(65px) !important;
   }
 
   .marketer-img {
